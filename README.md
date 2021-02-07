@@ -1,6 +1,4 @@
-This is a first attempt to use Embedded Python in IRIS  
-The Python code is adapted from solutions for [Advent of Code 2020](https://adventofcode.com/) contest.  
-Test data are all input to my personal challenge.
+This is a demo to make use of a simple WebSocket Client with Embedded Python in IRIS.  
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
@@ -27,46 +25,96 @@ $ docker-compose up -d
 
 Using IRIS terminal:
 ```
-$ docker-compose exec iris iris session iris "##class(rccpy.AoC20).Run()"
+$ docker-compose exec iris iris session iris "##class(rccpy.WSockPy).Run()"
 
-Welcome to embedded Python Demo
-select day as described on https://adventofcode.com/
-day 0 to exit
-     day (1..25) [1]:
-+++++ starting : day1 +++++++++
-     select part (1,2,*=all,0=skip) [*] :1
-     part 1: 181044
-     select part (1,2,*=all,0=skip) [*] :2
-     part 2: 82660352
-     select part (1,2,*=all,0=skip) [*] :0
-+++++++++ done : day1 +++++++++
-     day (1..25) [2]:
-+++++ starting : day2 +++++++++
-     select part (1,2,*=all,0=skip) [*] :*
-     part 1: 456
-     part 2: 308
-+++++++++ done : day2 +++++++++
-     day (1..25) [3]:
+*** Welcome to WebSocket Embedded Python Demo ***
+
+Collecting websocket-client
+  Using cached https://files.pythonhosted.org/packages/4c/5f/f61b420143ed1c8dc69f9eaec5ff1ac36109d52c80de49d66e0c36c3dfdf/websocket_client-0.57.0-py2.py3-none-any.whl
+Collecting six (from websocket-client)
+  Using cached https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Installing collected packages: six, websocket-client
+Successfully installed six-1.15.0 websocket-client-0.57.0
+
+%%%%%%
+
+Known Hosts (*=Exit) [1]:
+1  ws://echo.websocket.org/
+2  --- server 2 ----
+3  --- server 3 ----
+select (1): 1 ==> ws://echo.websocket.org/
+Python Connection Object:#
+Enter text to get echoed from WebSocketClient Service
+Terminate with * at first position
+or get generated text by %
+or append new text with @
+
+1    hi this is python
+2    from IRIS
+3    *
+
+Select action for WebSocket Service
+Send+Listen(S),New Text(N),Exit(X) [S]S
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+******* Submit 2 Lines *******
+1       send> hi this is python
+        recv< hi this is python
+2       send> from IRIS
+        recv< from IRIS
+
+
+Select action for WebSocket Service
+Send+Listen(S),New Text(N),Exit(X) [S]n
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+Enter text to get echoed from WebSocketClient Service
+Terminate with * at first position
+or get generated text by %
+or append new text with @
+
+1    with some more text
+2    %
+2    * Lorem ipsum dolor sit amet, consectetuer adipiscing
+3    * elit, sed diam nonummy nibh euismod tincidunt ut
+. . . .
+32   * un simplificat Angles, quam
+33   * un skeptic Cambridge amico dit me que Occidental es.
+34   *
+
+Select action for WebSocket Service
+Send+Listen(S),New Text(N),Exit(X) [S]s
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+******* Submit 33 Lines *******
+1       send> with some more text
+        recv< with some more text
+2       send> Lorem ipsum dolor sit amet, consectetuer adipiscing
+        recv< Lorem ipsum dolor sit amet, consectetuer adipiscing
+3       send> elit, sed diam nonummy nibh euismod tincidunt ut
+        recv< elit, sed diam nonummy nibh euismod tincidunt ut
+. . . .
+32      send> un simplificat Angles, quam
+        recv< un simplificat Angles, quam
+33      send> un skeptic Cambridge amico dit me que Occidental es.
+        recv< un skeptic Cambridge amico dit me que Occidental es.
+
+
+Select action for WebSocket Service
+Send+Listen(S),New Text(N),Exit(X) [S]x
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$
 ```
 ## Hints  
-Directory __.stream/__ contains all my input files and some public test data.  
-If you want to use your personal input you should replace them as 1 file by day.  
-e.g. input01.txt, input02.txt,........ ,input25.txt exactly as downloaded from AOC2020.  
-
 __%SYS.Python.html__ is a preliminary class docu to see available functions
-
-__iris.key__ is a temporary preview key available from [WRC Distribution](https://wrc.intersystems.com/wrc/coDistPreview.csp)  
-It requires your personal update as it might be expired.  
-It is not required to run the demo, but access to code might be limited.     
 
 __docker image__:  if you don't have the required image already you need to download it from containers.intersystems.com 
 ~~~
 docker login -u="<username>" -p="<passwd>" containers.intersystems.com
 docker pull containers.intersystems.com/intersystems/iris-ml:2020.3.0.304.0
 ~~~
-__run time__: for most tests replies are pretty immediate.  
-But a few tests take quite long time for calculations before showing a reaction.   
-Don't get nervous for day 11, 15!!, 17, 19, 22, 23. 
+__run time__: 
+If the standard Python module is not yet installed this is the first action and happens only once.  
  
 __iris.key:__ The container has no license included. 
 You may use it as single user or provide your own container license key.  
