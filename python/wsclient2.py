@@ -4,6 +4,7 @@ from websocket import create_connection
 def connect(uri):
     global wscon
     wscon = create_connection(uri)
+    print(wscon)
     
 def close():
     global wscon
