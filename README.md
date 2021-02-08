@@ -7,7 +7,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 
 Clone/git pull this repo into any local directory
 ```
-$ git clone https://github.com/rcemper/try_embedded_python  
+$ git clone https://github.com/rcemper/Wsock-Embedded-Py
 ```
 
 Open the terminal in this directory and run:
