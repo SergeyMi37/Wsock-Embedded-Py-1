@@ -3,10 +3,11 @@
   <Document name="wsock-embedded-py.ZPM">
     <Module>
       <Name>wsock-embedded-py</Name>
-      <Version>0.0.1</Version>
+      <Version>0.0.2</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="rccpy.WSockPy.CLS"/>
+      <FileCopy Name="py/" Target="${mgrdir}python/"/>
     </Module>
   </Document>
 </Export>
