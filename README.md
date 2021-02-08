@@ -24,7 +24,7 @@ $ docker-compose up -d
 ## How to Test it
 
 - Run an Iris Session in Docker 
-- Select your Websocket Echo Server
+- Select your WebSocket Echo Server
 - Enter the text you want to send or generate it
 - Send it and see the result
 
