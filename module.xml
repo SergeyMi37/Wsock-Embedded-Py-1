@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="try_embedded_python.ZPM">
+  <Document name="wsock-embedded-py.ZPM">
     <Module>
-      <Name>try_embedded_python</Name>
+      <Name>wsock-embedded-py</Name>
       <Version>0.0.1</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Name="rccpy.PKG"/>
+      <Resource Name="rccpy.WSockPy.CLS"/>
     </Module>
   </Document>
 </Export>
