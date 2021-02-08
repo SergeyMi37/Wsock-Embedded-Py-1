@@ -110,17 +110,9 @@ Send+Listen(S),New Text(N),Exit(X) [S]x
 $
 ```
 ## Hints  
-__%SYS.Python.html__ is a preliminary class docu to see available functions
+__%SYS.Python.html__ is a preliminary class docu to see available functions  
 
-__docker image__:  if you don't have the required image already you need to download it from containers.intersystems.com 
-~~~
-docker login -u="<username>" -p="<passwd>" containers.intersystems.com
-docker pull containers.intersystems.com/intersystems/iris-ml:2020.3.0.304.0
-~~~
 __run time__: 
 If the standard Python module is not yet installed this is the first action and happens only once.  
  
-__iris.key:__ The container has no license included. 
-You may use it as single user or provide your own container license key.  
-
 [Article in DC](https://community.intersystems.com/post/websocket-client-embedded-python)
