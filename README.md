@@ -23,7 +23,11 @@ $ docker-compose up -d
 
 ## How to Test it
 
-Using IRIS terminal:
+- Run an Iris Session in Docker 
+- Select your Websocket Echo Server
+- Enter the text you want to send or generate it
+- Send it and see the result
+
 ```
 $ docker-compose exec iris iris session iris "##class(rccpy.WSockPy).Run()"
 
