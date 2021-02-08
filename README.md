@@ -122,3 +122,5 @@ If the standard Python module is not yet installed this is the first action and 
  
 __iris.key:__ The container has no license included. 
 You may use it as single user or provide your own container license key.  
+
+[Article in DC](https://community.intersystems.com/post/websocket-client-embedded-python)
