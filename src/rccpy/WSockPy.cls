@@ -1,6 +1,6 @@
 Class rccpy.WSockPy [ Not ProcedureBlock ]
 {
-
+/// main 
 ClassMethod Run()
 {
 	write !!,"*** Welcome to WebSocket Embedded Python Demo ***",!!
