@@ -1,17 +1,11 @@
 Class rccpy.WSockPy [ Not ProcedureBlock ]
 {
+
 /// main 
 ClassMethod Run()
 {
 	write !!,"*** Welcome to WebSocket Embedded Python Demo ***",!!
 	kill ^ZSocketIn
-	set required="websocket-client"
-	if '$d(^pip(required)) {
-#; run install only once by session		
-		set pip=##class(%SYS.Python).Install(required)
-			,^pip(required)=pip
-		write !,"%%%%%%",!!	
-		}
 	set py=##class(%SYS.Python).Import("wsclient2")	
 	for  {
 		do selsrv quit:$t
@@ -23,7 +17,7 @@ S		do submit,control
 #; Z
 X		quit		 
 		}
-	if srv do py.close()
+	if $g(srv) do py.close()
 	quit
 
 submit
@@ -46,8 +40,8 @@ control
 	quit 			
 
 selsrv
-	set server(1)="ws://echo.websocket.org/"
-		,server(2)="--- server 2 ----"
+	set server(1)="ws://echodocker:8080/"
+		,server(2)="ws://localhost:10000/"
 		,server(3)="--- server 3 ----"
 	write "Known Hosts (*=Exit) [1]:",!
 	for i=1:1:3 write i,?3,server(i),!
@@ -55,9 +49,9 @@ selsrv
 	if srv="*" quit
 	if 'srv ; fix for demo
 			set srv=1 
-	write " ==> ",server(srv),!,"Python Connection Object:"
+	write " ==> ",server(srv),!,"Python Connection Object:",!
 	set sc=py.connect(server(srv))
-	write "#",!
+	write !,"%%%%%%",!!	
 	if 0	
 	quit
 
