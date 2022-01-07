@@ -4,7 +4,8 @@ from websocket import create_connection
 def connect(uri):
     global wscon
     wscon = create_connection(uri)
-    print(wscon)
+    reply = wscon.recv()
+    print(reply)
     
 def close():
     global wscon
@@ -20,13 +21,15 @@ def echo(msg):
     
         
 if __name__ == '__main__':
-    uri = "ws://echo.websocket.org/"
+    uri = "ws://echodocker:8080/"
     connect(uri)
-    back = "*"
-    ms = input("\nyour message1? ")
-    back = echo(ms)
-    print (f"\nreply>>>> {back}")
-    ms = input("\nyour message2? ")
-    back = echo(ms)
-    print (f"\nreply>>>> {back}")
+    go=1
+    while go>0 :
+        back = "*"
+        ms = input("\nyour message? ")+" "
+        if ms[0]=="*": 
+            break
+        back = echo(ms)
+   
+    print ("closing")
     close()
