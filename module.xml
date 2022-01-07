@@ -3,7 +3,7 @@
   <Document name="wsock-embedded-py.ZPM">
     <Module>
       <Name>wsock-embedded-py</Name>
-      <Version>0.0.3</Version>
+      <Version>0.1.0</Version>
       <Description>Demo using a WebSocket Client written in Python used over embedded Python</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
